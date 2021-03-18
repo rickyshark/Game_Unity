@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Rigidbody))]
 public class GameManager : MonoBehaviour
 {
     public Renderer fondo;
@@ -16,12 +17,16 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> nubes;
     // Start is called before the first frame update
+
+    //Codigo Ricky
+
     void Start()
     {
         //Creacion de Nubes
         nubes.Add(Instantiate(nube1, new Vector2(14, -2), Quaternion.identity));
         nubes.Add(Instantiate(nube1, new Vector2(18, 0), Quaternion.identity));
         nubes.Add(Instantiate(nube1, new Vector2(20, 2), Quaternion.identity));
+
     }
 
     // Update is called once per frame
@@ -46,11 +51,15 @@ public class GameManager : MonoBehaviour
 
         //Condicional para inicializar el juego. Nota: Todo el codigo del juego se debe poner dentro.
 
-        //if (start == true && gameOver == false)
-        //{
-        //    menuPrincipal.SetActive(false);
-        //}
+        if (start == true && gameOver == false)
+        {
 
+            menuPrincipal.SetActive(false);
+
+
+        }
+
+ 
         //Mover Map
         fondo.material.mainTextureOffset = fondo.material.mainTextureOffset + new Vector2(0.02f, 0) * Time.deltaTime;
 

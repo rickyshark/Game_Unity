@@ -1,12 +1,31 @@
-﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-namespace Assets.Sprits
+
+public class NaveMovimientos : MonoBehaviour
 {
-    class NaveMovimientos
+    Rigidbody rb;
+
+
+
+    void Start()
     {
+        rb = GetComponent<Rigidbody>();
+    }
+
+
+    void FixedUpdate()
+    {
+
+        float moveHorizontal = Input.GetAxis("Horizontal");
+
+        float moveVertical = Input.GetAxis("Vertical");
+
+        Vector3 Direccion = new Vector3(0f,moveHorizontal,0f);
+
+
+        rb.velocity = Direccion * 15f;
+
     }
 }
